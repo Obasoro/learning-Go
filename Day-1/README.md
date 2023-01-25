@@ -16,3 +16,8 @@ How to find the env
 go env GOPATH
 
 go --help useful in searching for documentation
+
+##########
+go mod init {folder name}
+
+Cannot convert string to interger except parseing  a paclkage for it
