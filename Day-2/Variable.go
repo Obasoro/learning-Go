@@ -1,8 +1,10 @@
 package main
 
+import "fmt"
+
 const LoginToken string = "toyinkunle" // public
 
-import "fmt"
+
 
 func main() {
 	//fmt.Println("variable") for variable
