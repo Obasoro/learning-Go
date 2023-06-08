@@ -61,4 +61,14 @@ func decodeJson() {
 	}else {
 		fmt.Println("Json is not valid")
 	}
+
+	// some cases where you just want to add data
+	var myOnlineData map[string]interface{}
+	json.Unmarshal(jsonDataFromWeb, &myOnlineData)
+	fmt.Printf("%#v\n", kunleTraining)
+
+	for k, v := range myOnlineData {
+		fmt.Printf("Key is %v and value is %v and Type is %T")
+	}
+
 }

@@ -2,6 +2,8 @@
 
 FROM golang:buster
 
+#FROM --platform=linux/amd64
+
 WORKDIR /app
 ADD . .
 RUN go build -o /usr/local/bin/simple-go-server

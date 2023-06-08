@@ -1,0 +1,22 @@
+# k8s/deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-go-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-go-server
+  template:
+    metadata:
+      labels:
+        app: simple-go-server
+    spec:
+      containers:
+        - name: simple-go-server
+          image: obasoro/simple-go-server
+          ports:
+            - containerPort: 4000
+          imagePullPolicy: Always
