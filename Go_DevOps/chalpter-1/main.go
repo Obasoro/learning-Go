@@ -244,3 +244,131 @@ func DivNum (num, div int) (res, rem int) {
 
 result, remainder := DivNum(3,2)
 fmt.Printf("Result: %d, Remaider: %d", result, remainder)
+
+
+// Using conditional if/else block
+switch blocks
+
+if [expression that evalaute to boolean] {
+
+}
+
+if [int statement]; [staement that evaluate to boolean]{
+
+}
+
+if err := SomeFunct(); err != nil {
+	fmt.Println(err)
+}
+
+kunle, err := SomeFunct()
+if err != nil {
+	return err
+} 
+fmt.Println(kunle)
+return nil
+
+
+if x > 10 {
+	fmt.Println("x is greater than 0")
+	
+} else if x = 11 {
+	fmt.Println
+
+	
+result, remainder := DivNum(4, 6)
+fmt.Printf("Result: %d, Remaider: %d", result, remainder)
+
+
+// Variadic Arguments
+
+func sum(num []int) int {
+	sum := 0
+	for _, n := range number {
+		dum += n
+	}
+	return sum
+}
+
+func sum(number ...int) int {
+	sum := 0
+	for _, n := range number {
+		sum += n
+
+	}
+	return sum
+}
+fmt.Println(sum(1,3,5,7))
+
+
+// Go accept anonympus function
+
+func main() {
+	result := func(kunle, obasoro, adeyemi string) {
+
+		return kunle + " " + adeyemi
+	} {"Hello", "world"}
+	fmt.Println(result)
+}
+
+
+// private, public and internally expoerted
+
+package say
+
+import "fmt"
+
+func PrintHello() {
+	fmt.Println("Hello")
+}
+
+func printWorld() {
+	fmt.Println("world")
+}
+
+func PrintHelloWorld() {
+	PrintHello()
+	printWorld()
+}
+
+package main
+
+import "github.com/repo/example/say"
+
+func main() {
+	say.PrintHello()
+	say.printHelloWorld()
+}
+// Arrays
+
+func chnageValueAtZero(array [2]int) {
+	array[0] = 2
+	fmt.Println("Inside: ", array[0] // will print 3)
+}
+
+func main() {
+	x := [2] int {
+
+	}
+
+	chnageValueAtZero(x)
+	fmt.Println(x) // will print zero
+
+
+}
+
+// slice
+
+var x = [] int
+
+x := []int{}
+
+x := []int{2,4,6,8}
+
+len(x) = 4
+
+var i int
+for ; i < 10; i++ {
+	fmt.Println(i)
+}
+fmt.Println("i's the final value:"
