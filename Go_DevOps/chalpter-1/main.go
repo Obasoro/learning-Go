@@ -1,10 +1,14 @@
 package main
 
 import (
+	"crypto/x509"
+	"errors"
 	"fmt"
+	"strings"
+	_ "sync" // Just an example of slide effect
+
 	"github.com/devopsforgo/mypackage"
 	jpackage "github.con/johnsiilver/mypackage"
-	_ "sync" // Just an example of slide effect
 )
 
 mypackage.Println()
@@ -372,3 +376,319 @@ for ; i < 10; i++ {
 	fmt.Println(i)
 }
 fmt.Println("i's the final value:"
+
+
+// Accessing Values
+
+modelToMake := map[string]string{
+	"priouse": "toyota",
+	"chevelle": "chevey"
+
+}
+
+carMake := ModelToMake["chevelle"]
+fmt.Println(carMake) // 
+
+if carMake, ok := modelToMake["outback"]; ok {
+	fmt.Printf("car model \"outback\" has made %q,\n", carMake)
+}else {
+	fmt.Printf("car model \"outback\" has an unknown make")
+}
+
+// Adding new valuess
+
+modelToMake["outback"] = "subaru"
+counter["pageHit"] = 10
+
+for key, val := range modelToMake {
+	fmt.Printf("car model %q has %q,\n", key, val)
+}
+
+// Pointer in Go
+
+var x int = 23
+fmt.Println(&x)
+
+
+func ChangeValue(word string) {
+	word += "world"
+}
+
+func main() {
+	say := "hello"
+	changeValue(say)
+	fmt.Println(say)
+}
+
+var intPtr *int
+
+intPtr = &x
+
+fmt.Println(x) // print 23
+fmt.Println(*intPtr) // print 23
+*intPtr = 80 // replace the value of x to 80
+fmt. println(x) print 80
+
+
+func changeValue(word *string) {
+	*word += "world"
+}
+
+func main() {
+	say := "hello"
+	changeValue(&say) // pass a pointer
+	fmt.Println(say) // prints Helloworls
+}
+
+// Struct
+
+var record = struct {
+	name string
+	number int
+}{
+	name: "Obasoro Olakunle",
+	Age: 38,
+}
+
+fmt.Println("%s is %d years old\n", record.name, record.Age)
+
+type CarModel string
+
+var mycar 
+
+/*. Declaring MAps. */
+
+var counters = make(map[string]int, 10)
+
+// Custom Struct types
+
+type Record struct {
+	Name string
+	Age int
+}
+
+func main() {
+	kunle := Record{Name: "Obasoro Olakunle", Age: 28}
+	Adeyemi := Record{Name: "Adeyemi Obasoro", Age: 34}
+	fmt.Printf("%+v\n", kunle)
+	fmt.Printf("%+v\n", Adeyemi)
+}
+
+// Removing init statement
+var i int;
+for ;i < 10;i++ {
+	fmt.Println(i)
+}
+fmt.Println("i's final value: ", i)
+
+// Remove the poststatement too and you have a while loop
+
+var i int
+for i < 10 {
+	i++
+}
+b := true
+for b{ // this is a while loop
+        fmtPrintln("Hello")
+	}
+// Create an infinite loop
+for {
+
+	fmt.Println("Hello World!")
+}
+
+for {
+	if err:= doSomothing(); err != nil {
+		break
+	}
+	fmt.Println("Keep going")
+}
+
+for i := 0;i < 10; i++ {
+	if i % 2 == 0 {
+		continue
+	}
+	fmt.Println("Odd number: "; i)
+}
+
+// Loop Braces
+***Correct loop braces***
+
+for {
+    fmt.Println("Hello Wor")
+
+}
+
+***Incorrect loop braces***
+if x > 2 {
+	fmt.Println("x is greater than 2")
+}
+
+if err := SomeFunction(); err != nil {
+	fmt.Println(err)
+}
+
+/// Getting to use Struct
+
+var record = struct{
+	Name  string
+	Age int
+}{
+	Name: "Obasoro Olakunle",
+	Age: 120, // Yeah, not publsihing the real one
+}
+fmt.Printf("%s is %d years old\n", record.name, record.Age)
+
+//type carModel string
+
+var mayCar CarModel = "Chevelle"
+myCar = CarModel("Chevelle")
+myCarAsString := string(MyCar)
+
+// Custom Struct type
+type Record struct {
+	Name string
+	Age int
+}
+
+func main() {
+	David := Record{Name: "David Obasoro", Age: 23}
+	Sarah := Record{Name: "Sarah Obasoro", Age: 45}
+	fmt.Printf("%+v\n", David)
+	Fmt.Printf("v%+v\n", Sarah)
+}
+
+// Adding ethod to type
+
+type Record struct {
+	Name string
+	Age int
+	// string returns a csv representing our record
+}
+func (r Record) String() string {
+	return fmt.Sprintf("%s, %d", r.Name, r.Age)
+}
+
+// Example
+
+type dotnet_api struct {
+
+}
+
+kunle := Record{Name: "Obasoro Olakunle", Age: 38}
+fmt.Println(kunle.String())
+
+myRecord.Name = "Obasoro Olakunle"
+fmt.Println(myRecord.Name)
+
+func changeName (r Record) {
+	r.Name = "Adeyemi"
+	fmt.Println("Inside changeName:", r.Name)
+}
+
+func main() {
+	rec := Record{Name: "Oluwaseyi"}
+	changeName(rec)
+	fmt.Println("main:", rec.Name)
+}
+
+func changeName(r *Record) {
+	r.Name = "Adeyemi"
+	fmt.Println("Inside changeName:", r.Name)
+}
+
+func main() {
+	// create a pointer to a record
+	rec := &Record{Name: "oluwaseyi"}
+	changeName(rec)
+	fmt.Println("main:", rec.Name)
+}
+
+func (r Record) IncAge() {
+	r.Age++
+}
+
+// Constructor are declared language
+
+func NewRecord(name string, age int) (*Record, error) {
+	if name == "" {
+		return nil, fmt.Errorf("name cannot be empty string")
+	}
+	if age <= 0 {
+		return nil, fmt.Errorf("age cannot be <= 0")
+	}
+	return &Record{Name: name, Age: age}, nil
+}
+
+rec, err := NewRecord("Adegbemiga", 100) 
+if err != nil {
+	return err
+}
+
+
+// Interface in Go
+
+type Stringer interface {
+	String() string
+}
+
+type Person struct {
+	First, Last string
+}
+func (p Person) String() string {
+	return fmt.Sprintf("%s%,%s", p.First, p.Last)
+}
+
+type StrList []string
+func (s StrList) String() string {
+	return strings.Join(s, ", ")
+}
+
+// PrintStringer prints the value of a Stringer to stdout
+
+func PrintStringer(s String) {
+	fmt.Println(s.String())
+}
+
+func main() {
+	yemi := Person{First: "Adeyemi", Last: "Obasoro"}
+	var nameList Stringer = StrList{"Obasoro", "Olakunle"}
+
+	PrintStringer(yemi)
+	PrintStringer(nameList)
+}
+
+// Interfaces
+
+/* The first thing aboug interface is tha value must implement every method defined in the method
+interface{} is go universal value container used to pass value
+*/
+var i interface{}
+i = 10
+i = "hello world"
+i = 3.5
+i = Person{First: "John"}
+
+func Println(a...interface{}) (n int, err error)
+func Printf(format string, a ....interface{}) (n int, err error)
+
+/* Assertion*/
+if v, ok := i.(string); ok {
+	fmt.Println(v)
+}
+
+switch v := i.(type) {
+	case int:
+		fmt.Printf("i was %d\n", i)
+	case string:
+		fmt.Printf("i was %s\n", i)
+	case float:
+		fmt.Printf("i was %v\n", i)
+	case Person, *Person:
+		fmt.Printf("i was %v\n", i)
+	default:
+		// %T will print l's underlying the type
+		fmt.Printf("i was an unsupporteed type %T\n")
+case condition:
+	
+}
